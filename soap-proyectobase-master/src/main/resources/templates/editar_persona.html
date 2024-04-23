@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Registraduria</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">App de Registraduria</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/persona}">Listados</a>
+        </div>
+
+    </div>
+</nav>
+<br>
+<br>
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>Modificar datos</h1>
+                <hr style="border-top: 1px solid black;">
+                <div class="form-group">
+                    <label class="control-label" for="Documentoc">Documento: </label> <input
+                        id="Documentoc" type="text" class="form-control" th:field="*{documento}"
+                        required autofocus="autofocus">
+                    <button type="submit" class="btn btn-success">Consultar</button>
+                </div>
+                <h2>Datos de la persona</h2>
+                <hr style="border-top: 1px solid black;">
+                <div class="card-body">
+                    <form th:action="@{/persona}" method="post" th:object="${persona}">
+                        <div class="form-group">
+                            <label class="control-label" for="Tipo de documento">Tipo de Documento: </label>
+                            <select id="Tipo de documento" class="form-control" th:field="*{tipoDocumento}" required autofocus="autofocus">
+                                <option value="">Seleccione una opción</option>
+                                <option value="RC">RC</option>
+                                <option value="TI">TI</option>
+                                <option value="CC">CC</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Documento">Documento: </label> <input
+                                id="Documento" type="text" class="form-control" th:field="*{documento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Primer Apellido">Primer Apellido: </label> <input
+                                id="Primer Apellido" type="text" class="form-control" th:field="*{primerApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Segundo Apellido">Segundo Appelido: </label> <input
+                                id="Segundo Apellido" type="text" class="form-control" th:field="*{segundoApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Nombres">Nombres: </label> <input
+                                id="Nombres" type="text" class="form-control" th:field="*{nombres}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Fecha de Nacimiento">Fecha de Nacimiento: </label>
+                            <input id="Fecha de Nacimiento" type="date" class="form-control" th:field="*{fechadeNacimiento}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Lugar de Nacimiento">Lugar de Nacimiento: </label> <input
+                                id="Lugar de Nacimiento" type="text" class="form-control" th:field="*{lugardeNacimiento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Sexo">Sexo: </label> <input
+                                id="Sexo" type="text" class="form-control" th:field="*{sexo}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="RH">RH: </label> <input
+                                id="RH" type="text" class="form-control" th:field="*{rh}"
+                                required autofocus="autofocus">
+                        </div>
+                        <br>
+                    </form>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Actualizar</button>
+                </div>
+            </div>
+        </div>
+        <br> <br>
+    </div>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
+

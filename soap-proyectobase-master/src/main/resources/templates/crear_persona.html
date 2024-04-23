@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Registraduria</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                        aria-controls="navbar">
+                    <span class="sr-only">App de Registraduria</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" th:href="@{/nacimiento}">Listados</a>
+            </div>
+
+        </div>
+    </nav>
+    <br>
+    <br>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <!-- Sección: Registrar Personas -->
+                    <h1>Datos del Nacido</h1>
+                    <hr style="border-top: 1px solid black;">
+                    <div class="card-body">
+                    <form th:action="@{/persona}" method="post" th:object="${persona}">
+                        <div class="form-group">
+                            <label class="control-label" for="Tipo de documento">Tipo de Documento: </label>
+                            <select id="Tipo de documento" class="form-control" th:field="*{tipoDocumento}" required autofocus="autofocus">
+                                <option value="">Seleccione una opción</option>
+                                <option value="RC">RC</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Documento">Documento: </label> <input
+                                id="Documento" type="text" class="form-control" th:field="*{documento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Primer Apellido">Primer Apellido: </label> <input
+                                id="Primer Apellido" type="text" class="form-control" th:field="*{primerApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Segundo Apellido">Segundo Appelido: </label> <input
+                                id="Segundo Apellido" type="text" class="form-control" th:field="*{segundoApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Nombres">Nombres: </label> <input
+                                id="Nombres" type="text" class="form-control" th:field="*{nombres}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Fecha de Nacimiento">Fecha de Nacimiento: </label>
+                            <input id="Fecha de Nacimiento" type="date" class="form-control" th:field="*{fechadeNacimiento}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Lugar de Nacimiento">Lugar de Nacimiento: </label> <input
+                                id="Lugar de Nacimiento" type="text" class="form-control" th:field="*{lugardeNacimiento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Sexo">Sexo: </label> <input
+                                id="Sexo" type="text" class="form-control" th:field="*{sexo}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="RH">RH: </label> <input
+                                id="RH" type="text" class="form-control" th:field="*{rh}"
+                                required autofocus="autofocus">
+                        </div>
+                        <br>
+                    </form>
+                    </div>
+                    <hr style="border-top: 1px solid black;">
+                    <!-- Sección: Padres -->
+                    <h1>Datos de los Padres</h1>
+                    <hr style="border-top: 1px solid black;">
+                    <h2>Madre</h2>
+                    <hr style="border-top: 1px solid black;">
+                    <form th:action="@{/ciudadano}" method="post" th:object="${madre}">
+                        <!-- Campos de persona para la madre -->
+                        <div class="form-group">
+                            <label class="control-label" for="Tipo de documentom">Tipo de Documento: </label>
+                            <select id="Tipo de documentom" class="form-control" th:field="*{tipoDocumento}" required autofocus="autofocus">
+                                <option value="">Seleccione una opción</option>
+                                <option value="RC">RC</option>
+                                <option value="TI">TI</option>
+                                <option value="CC">CC</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Documentom">Documento: </label> <input
+                                id="Documentom" type="text" class="form-control" th:field="*{documento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Primer Apellidom">Primer Apellido: </label> <input
+                                id="Primer Apellidom" type="text" class="form-control" th:field="*{primerApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Segundo Apellidom">Segundo Appelido: </label> <input
+                                id="Segundo Apellidom" type="text" class="form-control" th:field="*{segundoApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Nombresm">Nombres: </label> <input
+                                id="Nombresm" type="text" class="form-control" th:field="*{nombres}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Fecha de Nacimientom">Fecha de Nacimiento: </label>
+                            <input id="Fecha de Nacimientom" type="date" class="form-control" th:field="*{fechadeNacimiento}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Lugar de Nacimientom">Lugar de Nacimiento: </label> <input
+                                id="Lugar de Nacimientom" type="text" class="form-control" th:field="*{lugardeNacimiento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Sexom">Sexo: </label> <input
+                                id="Sexom" type="text" class="form-control" th:field="*{sexo}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="RHm">RH: </label> <input
+                                id="RHm" type="text" class="form-control" th:field="*{rh}"
+                                required autofocus="autofocus">
+                        </div>
+                    </form>
+                    <h2>Padre</h2>
+                    <hr style="border-top: 1px solid black;">
+                    <form th:action="@{/ciudadano}" method="post" th:object="${padre}">
+                        <!-- Campos de persona para el padre -->
+                        <div class="form-group">
+                            <label class="control-label" for="Tipo de documentop">Tipo de Documento: </label>
+                            <select id="Tipo de documentop" class="form-control" th:field="*{tipoDocumento}" required autofocus="autofocus">
+                                <option value="">Seleccione una opción</option>
+                                <option value="RC">RC</option>
+                                <option value="TI">TI</option>
+                                <option value="CC">CC</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Documentop">Documento: </label> <input
+                                id="Documentop" type="text" class="form-control" th:field="*{documento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Primer Apellidop">Primer Apellido: </label> <input
+                                id="Primer Apellidop" type="text" class="form-control" th:field="*{primerApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Segundo Apellidop">Segundo Appelido: </label> <input
+                                id="Segundo Apellidop" type="text" class="form-control" th:field="*{segundoApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Nombresp">Nombres: </label> <input
+                                id="Nombresp" type="text" class="form-control" th:field="*{nombres}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Fecha de Nacimientop">Fecha de Nacimiento: </label>
+                            <input id="Fecha de Nacimientop" type="date" class="form-control" th:field="*{fechadeNacimiento}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Lugar de Nacimientop">Lugar de Nacimiento: </label> <input
+                                id="Lugar de Nacimientop" type="text" class="form-control" th:field="*{lugardeNacimiento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Sexop">Sexo: </label> <input
+                                id="Sexop" type="text" class="form-control" th:field="*{sexo}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="RHp">RH: </label> <input
+                                id="RHp" type="text" class="form-control" th:field="*{rh}"
+                                required autofocus="autofocus">
+                        </div>
+                    </form>
+                    <hr style="border-top: 1px solid black;">
+                    <!-- Sección: Registrar Nacimientos -->
+                    <h1>Registrar Nacimiento</h1>
+                    <hr style="border-top: 1px solid black;">
+                    <form th:action="@{/nacimiento}" method="post" th:object="${nacimiento}">
+                        <div class="form-group">
+                            <label class="control-label" for="Fecha de Registro">Fecha de Registro: </label>
+                            <input id="Fecha de Registro" type="date" class="form-control" th:field="*{fecha}" required autofocus="autofocus">
+                        </div>
+                        <h2>Registrador</h2>
+                        <hr style="border-top: 1px solid black;">
+                        <form th:action="@{/registrador}" method="post" th:object="${registrador}">
+                        <div class="form-group">
+                            <label class="control-label" for="Sede">Sede: </label>
+                            <input id="Sede" type="text" class="form-control" th:field="*{sede}" required autofocus="autofocus">
+                        </div>
+                        <!-- Campos de persona para el registrador -->
+                        <div class="form-group">
+                            <label class="control-label" for="Tipo de documentor">Tipo de Documento: </label>
+                            <select id="Tipo de documentor" class="form-control" th:field="*{tipoDocumento}" required autofocus="autofocus">
+                                <option value="">Seleccione una opción</option>
+                                <option value="CC">CC</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Documentor">Documento: </label> <input
+                                id="Documentor" type="text" class="form-control" th:field="*{documento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Primer Apellidor">Primer Apellido: </label> <input
+                                id="Primer Apellidor" type="text" class="form-control" th:field="*{primerApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Segundo Apellidor">Segundo Appelido: </label> <input
+                                id="Segundo Apellidor" type="text" class="form-control" th:field="*{segundoApellido}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Nombresr">Nombres: </label> <input
+                                id="Nombresr" type="text" class="form-control" th:field="*{nombres}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Fecha de Nacimientor">Fecha de Nacimiento: </label>
+                            <input id="Fecha de Nacimientor" type="date" class="form-control" th:field="*{fechadeNacimiento}" required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Lugar de Nacimientor">Lugar de Nacimiento: </label> <input
+                                id="Lugar de Nacimientor" type="text" class="form-control" th:field="*{lugardeNacimiento}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="Sexor">Sexo: </label> <input
+                                id="Sexor" type="text" class="form-control" th:field="*{sexo}"
+                                required autofocus="autofocus">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="RHr">RH: </label> <input
+                                id="RHr" type="text" class="form-control" th:field="*{rh}"
+                                required autofocus="autofocus">
+                        </div>
+                    </form>
+                    <hr style="border-top: 1px solid black;">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Registrar</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+
+
+        <br> <br>
+
+
+    </div>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+</html>

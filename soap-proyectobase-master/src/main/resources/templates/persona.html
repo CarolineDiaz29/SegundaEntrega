@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Registraduria</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <!-- Optional theme -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+          crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">App de Registraduria </span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/persona}">Listado</a>
+        </div>
+
+    </div>
+</nav>
+<br>
+<br>
+<div class="container">
+    <h1>Listado de Personas</h1>
+    <br>
+    <a class="btn btn-primary" href="#" th:href="@{/persona/nuevo}">Adicionar Persona</a>
+
+    <br> <br>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Seq</th>
+            <th>Tipo de documento</th>
+            <th>Documento</th>
+            <th>Primer apellido</th>
+            <th>Segundo apellido</th>
+            <th>Nombres</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Lugar de Nacimiento</th>
+            <th>Sexo</th>
+            <th>RH</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="dato : ${persona}">
+                <td th:text="${dato.seq}">Seq</td>
+                <td th:text="${dato.tipodocumento}">Tipo de documento</td>
+                <td th:text="${dato.documento}">Documento</td>
+                <td th:text="${dato.primerapellido}">Primer apellido</td>
+                <td th:text="${dato.segundoapellido}">Segundo apellido</td>
+                <td th:text="${dato.nombres}">Nombres</td>
+                <td th:text="${dato.fechanacimiento}">Fecha de Nacimiento</td>
+                <td th:text="${dato.lugarnacimiento}">Lugar de Nacimiento</td>
+                <td th:text="${dato.sexo}">Sexo</td>
+                <td th:text="${dato.rh}">RH</td>
+                <td >
+                    <a th:href="@{/persona/modificar/{serial}(serial=${dato.serial})}" class="btn btn-info">Editar</a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <h1>Listado de Ciudadanos</h1>
+    <br>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Seq</th>
+            <th>Nacido</th>
+            <th>Mamá</th>
+            <th>Papá</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dato : ${persona}">
+            <td th:text="${dato.seq}">Seq</td>
+            <td th:text="${dato.nacido}">Nacido</td>
+            <td th:text="${dato.mama}">Mamá</td>
+            <td th:text="${dato.papa}">Papá</td>
+        </tr>
+        </tbody>
+    </table>
+    <h1>Listado de Nacimientos</h1>
+    <br>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Seq</th>
+            <th>Fecha de Registro</th>
+            <th>Persona</th>
+            <th>Registrador</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dato : ${persona}">
+            <td th:text="${dato.seq}">Seq</td>
+            <td th:text="${dato.fecharegistro}">Fecha de Registro</td>
+            <td th:text="${dato.persona}">Persona</td>
+            <td th:text="${dato.persona}">Regristrador</td>
+        </tr>
+        </tbody>
+    </table>
+    <h1>Listado de Registradores</h1>
+    <br>
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Seq</th>
+            <th>Persona</th>
+            <th>Sede</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="dato : ${persona}">
+            <td th:text="${dato.seq}">Seq</td>
+            <td th:text="${dato.persona}">Persona</td>
+            <td th:text="${dato.sede}">Sede</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+</body>
+</html>
